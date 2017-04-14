@@ -10,7 +10,8 @@ Router.use(function (req, res, next) {
 });
 
 /* GET home page. */
-Router.route('/').get(function(req, res) {
+Router.route('/')
+.get(function(req, res) {
   x('https://www.craigslist.org/about/sites', '.box', [{
     state: 'h4',
     cities: x('ul', [{
@@ -20,10 +21,25 @@ Router.route('/').get(function(req, res) {
     if(err) {
       console.log(err, "Error scraping");
     } else {
-      console.log(x);
       res.json(scraped);
     }
   })
 })
 
-module.exports = router;
+// Router.route('/results')
+//  .get(function(req, res) {
+//    x('http://stackoverflow.com/questions', '#questions .question-summary .summary', [{
+//     title   : 'h3',
+//     link    : 'h3 a@href',
+//     details : x('h3 a@href', {
+//                   title    : 'h1',
+//                   question : '.question .post-text',
+//     })
+//   }])
+//   (function(err, obj) {
+//     console.log(err);
+//     console.log(obj);
+//   })
+//  })
+
+module.exports = Router;

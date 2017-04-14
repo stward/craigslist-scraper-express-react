@@ -14,7 +14,7 @@ class HomeContainer extends Component {
 
   scrapeInfo = () => {
     $.ajax({
-      url: '/api/index',
+      url: '/api',
       method: 'GET'
     }).done((data) => {
       this.setState({info: data})
@@ -22,6 +22,7 @@ class HomeContainer extends Component {
   }
 
   render () {
+    console.log({"info": this.state.info});
     return (
       <div>
         {this.state.info ? <HomeDisplay info={this.info} /> : null}
