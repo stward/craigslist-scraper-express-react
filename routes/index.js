@@ -3,20 +3,14 @@ var router = express.Router();
 var Xray = require('x-ray');
 var x = Xray();
 
-var Router = new express.Router();
+const Router = new express.Router();
 
-Router.use(function (req, res, next) {
-  return next();
-});
+Router.use((req, res, next) => next());
 
-/* GET home page. */
-Router.route('/')
-.get(function(req, res) {
-  x('https://www.craigslist.org/about/sites', '.box', [{
-    state: 'h4',
-    cities: x('ul', [{
-      city: 'li'
-    }])
+Router.route('/').get(function(req, res) {
+  x('https://www.craigslist.org/about/sites', '.colmask', [{
+    state: ['.box h4'],
+    city: ['.box ul']
   }])(function(err, scraped) {
     if(err) {
       console.log(err, "Error scraping");
@@ -25,21 +19,5 @@ Router.route('/')
     }
   })
 })
-
-// Router.route('/results')
-//  .get(function(req, res) {
-//    x('http://stackoverflow.com/questions', '#questions .question-summary .summary', [{
-//     title   : 'h3',
-//     link    : 'h3 a@href',
-//     details : x('h3 a@href', {
-//                   title    : 'h1',
-//                   question : '.question .post-text',
-//     })
-//   }])
-//   (function(err, obj) {
-//     console.log(err);
-//     console.log(obj);
-//   })
-//  })
 
 module.exports = Router;
