@@ -22,9 +22,10 @@ class HomeContainer extends Component {
   }
 
   render () {
+    console.log(this.state.info);
     return (
       <div>
-        {this.state.info ? <HomeDisplay info={this.info} /> : null}
+        {this.state.info ? <HomeDisplay info={this.state.info} /> : null}
       </div>
     )
   }
