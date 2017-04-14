@@ -14,7 +14,7 @@ class HomeContainer extends Component {
 
   scrapeInfo = () => {
     $.ajax({
-      url: '/api/index',
+      url: '/api',
       method: 'GET'
     }).done((data) => {
       this.setState({info: data})
