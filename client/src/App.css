@@ -28,3 +28,42 @@ body {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+
+/*====================================
+             Home Page
+====================================*/
+
+.homePageFlexBoxs {
+  display: flex;
+  border: 1px solid black;
+  flex-wrap: wrap;
+  width: calc(33.33% -10px);
+  justify-content: space-between;
+}
+
+.homePageFlexItems {
+  display: flex;
+  flex-wrap: wrap;
+  width: calc(50% - 10px);
+  justify-content: space-around;
+}
+
+.homeFlexItem {
+  margin-left: 15px;
+}
+
+/*====================================
+             Results Page
+====================================*/
+
+.resultsFlexbox {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  margin: 1% 5% 1% 3%;
+  flex-wrap: wrap;
+  box-shadow: -2px -2px;
+  border-radius: 10px;
+  padding: .5% .5% .5% .5%;
+}
