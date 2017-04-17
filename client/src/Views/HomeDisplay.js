@@ -5,11 +5,13 @@ const HomeDisplay = (props) => {
   for (var i in props.info) {
     for (var j in props.info[i].state) {
       var cityDiv = props.info[i].cities[j].name.map(function(item) {
-        return <p>{item}</p>
+        return <p><li>{item}</li></p>
       })
       var state = <div>
                     {props.info[i].state[j]}
+                    <ul>
                     {cityDiv}
+                    </ul>
                   </div>
       test.push(state)
     }
@@ -17,22 +19,6 @@ const HomeDisplay = (props) => {
   var garbage = test.map(function(item) {
     return <div>{item}</div>
   })
-  // var states = props.info.map(function(item) {
-  //   for (var i in item.state) {
-  //     test.push(<div>{item.state[i]}</div>)
-  //   }
-  //   console.log("TEST: " + test);
-  //   return test
-  // });
-  // var cities = props.info.map(function(item) {
-  //   for (var i in item.city) {
-  //     test.push(<div>{item.city[i]}</div>)
-  //     console.log(item.city[i]);
-  //     var res = item.city[i].split(" ");
-  //     console.log(res);
-  //   }
-  //   return test
-  // });
   return (
     <div>
       <h1> HOME PAGE </h1>

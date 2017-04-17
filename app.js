@@ -8,7 +8,7 @@ var Xray = require('x-ray');
 var x = Xray();
 
 var index = require('./routes/index');
-// var users = require('./routes/users');
+var users = require('./routes/users');
 
 var app = express();
 
