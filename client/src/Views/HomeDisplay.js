@@ -5,12 +5,14 @@ const HomeDisplay = (props) => {
   for (var i in props.info) {
     for (var j in props.info[i].state) {
       var cityDiv = props.info[i].cities[j].name.map(function(item) {
-        return <p><li>{item}</li></p>
+        return <p><li className='homeFlexItem'>{item}</li></p>
       })
       var state = <div>
-                    {props.info[i].state[j]}
-                    <ul>
-                    {cityDiv}
+                    <div className='homePageFlexBoxs'>
+                      {props.info[i].state[j]}
+                    </div>
+                    <ul className='homePageFlexItems'>
+                      {cityDiv}
                     </ul>
                   </div>
       test.push(state)

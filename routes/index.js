@@ -7,13 +7,30 @@ const Router = new express.Router();
 
 Router.use((req, res, next) => next());
 
-Router.route('/').get(function(req, res) {
+Router.route('/')
+.get(function(req, res) {
   x('https://www.craigslist.org/about/sites', '.colmask', [{
     state: ['.box h4'],
     city: ['.box ul'],
     cities: x('.box ul', [{
       name: ['li']
     }])
+  }])(function(err, scraped) {
+    if(err) {
+      console.log(err, "Error scraping");
+    } else {
+      res.json(scraped);
+    }
+  })
+})
+
+Router.route('/results')
+.get(function(req, res) {
+  x('https://bozeman.craigslist.org/search/zip', '.rows', [{
+    offer: ['ul li'],
+    // links: x('li', [{
+    //   link: ['@href']
+    // }]),
   }])(function(err, scraped) {
     if(err) {
       console.log(err, "Error scraping");
