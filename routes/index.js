@@ -40,4 +40,18 @@ Router.route('/results')
   })
 })
 
+Router.route('/details/:detailId')
+.get(function(req, res) {
+  x('https://bozeman.craigslist.org/search/zip/'+req.params.detailId, '.rows', [{
+    title: ['body h2'],
+  }])(function(err, scraped) {
+    if(err) {
+      console.log(err, "Error scraping");
+    } else {
+      res.json(scraped);
+    }
+  })
+})
+
+
 module.exports = Router;
