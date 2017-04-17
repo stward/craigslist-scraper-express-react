@@ -1,13 +1,12 @@
 import React, {Component} from 'react';
 import $ from 'jquery';
 import ResultsDisplay from '../Views/ResultsDisplay';
-import DetailsDisplay from '../Views/DetailsDisplay';
 
 class ResultsContainer extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      resultsInfo : null
+      resultsInfo : null,
     }
   }
 
@@ -24,8 +23,7 @@ class ResultsContainer extends Component {
   render () {
     return (
       <div>
-         {this.state.resultsInfo !== null ? <ResultsDisplay resultsInfo={this.state.resultsInfo}/> : null}
-         {this.state.detailsId ? <DetailsDisplay /> : null}
+         {(this.state.resultsInfo !== null) ? <ResultsDisplay resultsInfo={this.state.resultsInfo}/> : null}
       </div>
     )
   }

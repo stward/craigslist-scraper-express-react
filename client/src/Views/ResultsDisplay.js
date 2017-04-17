@@ -7,13 +7,14 @@ const ResultsDisplay = (props) => {
   for (var i in props.resultsInfo) {
     for (var j in props.resultsInfo[i].offer) {
       var resultsDiv = props.resultsInfo[i].links[j].link.map(function(item) {
-        return <p><li>{item}</li></p>
+        return <p data-id={item}>{item}</p>
       })
-      var state = <div className='resultsFlexbox'>
-                    {props.resultsInfo[i].offer[j]}
-                    <Link to={props.resultsInfo[i].links[j].link[0]}>{resultsDiv}</Link>
-                  </div>
-      resultsTest.push(state)
+      var link = props.resultsInfo[i].links[j].link[0].replace(/\D/g, '');
+            var state = <div className='resultsFlexbox'>
+                          {props.resultsInfo[i].offer[j]}
+                          <a href={link}>{resultsDiv}</a>
+                        </div>
+            resultsTest.push(state)
     }
   var garbage = resultsTest.map(function(item) {
     return <div>{item}</div>
