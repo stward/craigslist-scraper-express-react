@@ -10,7 +10,10 @@ Router.use((req, res, next) => next());
 Router.route('/').get(function(req, res) {
   x('https://www.craigslist.org/about/sites', '.colmask', [{
     state: ['.box h4'],
-    city: ['.box ul']
+    city: ['.box ul'],
+    cities: x('.box ul', [{
+      name: ['li']
+    }])
   }])(function(err, scraped) {
     if(err) {
       console.log(err, "Error scraping");
