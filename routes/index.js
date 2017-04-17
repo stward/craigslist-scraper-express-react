@@ -28,9 +28,9 @@ Router.route('/results')
 .get(function(req, res) {
   x('https://bozeman.craigslist.org/search/zip', '.rows', [{
     offer: ['ul li'],
-    // links: x('li', [{
-    //   link: ['@href']
-    // }]),
+    links: x('li .result-info', [{
+      link: ['.result-title@href']
+    }]),
   }])(function(err, scraped) {
     if(err) {
       console.log(err, "Error scraping");
