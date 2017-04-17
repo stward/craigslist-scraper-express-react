@@ -10,6 +10,7 @@ ReactDOM.render(
     <Route path='/' component={App} >
       <IndexRoute component={HomeContainer} />
         <Route path='/results' component={ResultsContainer} />
+        {/*<Route path='/zip/'+data-id component={DisplayContainer} />*/}
       </Route>
   </Router>,
   document.getElementById('root')

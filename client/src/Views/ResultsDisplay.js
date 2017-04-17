@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router';
 
 const ResultsDisplay = (props) => {
   console.log(props.resultsInfo);
@@ -10,7 +11,7 @@ const ResultsDisplay = (props) => {
       })
       var state = <div className='resultsFlexbox'>
                     {props.resultsInfo[i].offer[j]}
-                    {resultsDiv}
+                    <Link to={props.resultsInfo[i].links[j].link[0]}>{resultsDiv}</Link>
                   </div>
       resultsTest.push(state)
     }
