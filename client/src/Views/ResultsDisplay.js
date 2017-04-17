@@ -5,11 +5,12 @@ const ResultsDisplay = (props) => {
   var resultsTest = []
   for (var i in props.resultsInfo) {
     for (var j in props.resultsInfo[i].offer) {
-      var resultsDiv = props.resultsInfo[i].links.map(function(item) {
-        return <p><li>{item.link}</li></p>
+      var resultsDiv = props.resultsInfo[i].links[j].link.map(function(item) {
+        return <p><li>{item}</li></p>
       })
       var state = <div className='resultsFlexbox'>
                     {props.resultsInfo[i].offer[j]}
+                    {resultsDiv}
                   </div>
       resultsTest.push(state)
     }
