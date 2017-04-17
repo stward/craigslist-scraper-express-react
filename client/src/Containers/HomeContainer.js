@@ -18,6 +18,7 @@ class HomeContainer extends Component {
       method: 'GET'
     }).done((data) => {
       this.setState({info: data})
+      console.log(this.state);
     })
   }
 

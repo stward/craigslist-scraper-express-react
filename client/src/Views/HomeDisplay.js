@@ -4,7 +4,10 @@ const HomeDisplay = (props) => {
   var test = []
   for (var i in props.info) {
     for (var j in props.info[i].state) {
-      var cities = (props.info[i].city[j]).replace(/\s*([/()[\]])\s*/g, '$1').split(" ");
+      var cities = [];
+      for (var k in props.info[i].cities[j].name) {
+        cities.push(props.info[i].cities[j].name[k]);
+      }
       var cityDiv = cities.map(function(item) {
         return <p>{item}</p>
       })
