@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var Xray = require('x-ray');
 var x = Xray();
-
+const util = require('util')
 const Router = new express.Router();
 
 Router.use((req, res, next) => next());
@@ -13,7 +13,8 @@ Router.route('/')
     state: ['.box h4'],
     city: ['.box ul'],
     cities: x('.box ul', [{
-      name: ['li']
+      name: ['li'],
+      link: ['a@href']
     }])
   }])(function(err, scraped) {
     if(err) {
@@ -26,7 +27,8 @@ Router.route('/')
 
 Router.route('/results')
 .get(function(req, res) {
-  x('https://bozeman.craigslist.org/search/zip', '.rows', [{
+  console.log("q: " + req.query.link);
+  x(req.query.link + 'search/zip', '.rows', [{
     offer: ['ul li'],
     links: x('li .result-info', [{
       link: ['.result-title@href']
