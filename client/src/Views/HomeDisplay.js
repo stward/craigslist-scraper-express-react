@@ -4,8 +4,10 @@ const HomeDisplay = (props) => {
   var test = []
   for (var i in props.info) {
     for (var j in props.info[i].state) {
-      var cityDiv = props.info[i].cities[j].name.map(function(item) {
-        return <p><li className='homeFlexItem'>{item}</li></p>
+      var cityDiv = props.info[i].cities[j].name.map(function(item, index) {
+        // console.log("The current iteration is: " + index);
+        var cityLink = "/results?link=" + encodeURIComponent(props.info[i].cities[j].link[index])
+        return <a href={cityLink}><li className='homeFlexItem'>{item}</li></a>
       })
       var state = <div>
                     <div className='homePageFlexBoxs'>

@@ -14,7 +14,7 @@ class ResultsContainer extends Component {
 
   scrapeInfo = () => {
     $.ajax({
-      url: '/api/results',
+      url: '/api/results?link=' + this.props.location.query.link,
       method: 'GET'
     }).done((data) => {
       this.setState({resultsInfo: data})
