@@ -1,4 +1,5 @@
 import React from 'react';
+import {browserHistory} from 'react-router';
 
 const ResultsDisplay = (props) => {
   console.log(props.resultsInfo);
@@ -22,6 +23,7 @@ const ResultsDisplay = (props) => {
     return (
       <div>
         <h1> RESULTS PAGE </h1>
+        <button onClick={browserHistory.goBack}>Go Back</button>
         {garbage}
       </div>
     )

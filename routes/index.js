@@ -11,7 +11,6 @@ Router.route('/')
 .get(function(req, res) {
   x('https://www.craigslist.org/about/sites', '.colmask', [{
     state: ['.box h4'],
-    city: ['.box ul'],
     cities: x('.box ul', [{
       name: ['li'],
       link: ['a@href']

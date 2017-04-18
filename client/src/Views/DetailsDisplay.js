@@ -1,4 +1,5 @@
 import React from 'react';
+import {browserHistory} from 'react-router';
 
 const DetailsDisplay = (props) => {
   var Title = [];
@@ -25,6 +26,7 @@ const DetailsDisplay = (props) => {
   return (
     <div>
       <h1> DETAILS PAGE </h1>
+      <button onClick={browserHistory.goBack}>Go Back</button>
       {garbage}
     </div>
   );
