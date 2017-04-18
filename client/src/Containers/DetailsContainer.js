@@ -15,9 +15,8 @@ class ResultsContainer extends Component {
   }
 
   detailsScrapeInfo = () => {
-    console.log(this.props.params.detailId);
     $.ajax({
-      url: '/api/details/'+this.props.params.detailId,
+      url: '/api/details?link=' + this.props.location.query.link,
       method: 'GET'
     }).done((data) => {
       this.setState({detailInfo: data})
@@ -26,7 +25,7 @@ class ResultsContainer extends Component {
   }
   render () {
     console.log(this.props);
-    console.log(this.state.detailInfo);
+    console.log({detailInfo: this.state.detailInfo});
 
     return (
       <div>

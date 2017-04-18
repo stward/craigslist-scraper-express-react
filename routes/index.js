@@ -43,10 +43,10 @@ Router.route('/results')
   })
 })
 
-Router.route('/details/:detailId')
+Router.route('/details')
 .get(function(req, res) {
-  console.log(req.params.detailId);
-  x(('https://bozeman.craigslist.org/zip/'+req.params.detailId+'.html'), '.body', [{
+  console.log("q: " + req.query.link);
+  x((req.query.link), '.body', [{
     titles: x('h2 ', [{
       title: ['.postingtitletext']
     }]),

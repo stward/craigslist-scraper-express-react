@@ -8,11 +8,11 @@ const ResultsDisplay = (props) => {
       var resultsDiv = props.resultsInfo[i].links[j].link.map(function(item) {
         return <p>{item}</p>
       })
-      var link = props.resultsInfo[i].links[j].link[0].replace(/\D/g, '');
-      var details = '/details/'+link;
+      var link = props.resultsInfo[i].links[j].link[0];
+      var detailLink = "/details?link=" + encodeURIComponent(link)
             var state = <div className='resultsFlexbox'>
                           {props.resultsInfo[i].offer[j]}
-                          <a href={details}>{resultsDiv}</a>
+                          <a href={detailLink}>{resultsDiv}</a>
                         </div>
             resultsTest.push(state)
     }
