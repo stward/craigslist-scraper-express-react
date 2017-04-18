@@ -13,7 +13,7 @@ ReactDOM.render(
     <Route path='/' component={App} >
       <IndexRoute component={HomeContainer} />
         <Route path='/results' component={ResultsContainer} />
-        <Route path='/details' component={DetailsContainer} />
+        <Route path='/details/:detailId' component={DetailsContainer} />
       </Route>
   </Router>,
   document.getElementById('root')

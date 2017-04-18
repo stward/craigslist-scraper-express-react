@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link} from 'react-router';
 
 const ResultsDisplay = (props) => {
   console.log(props.resultsInfo);
@@ -7,12 +6,13 @@ const ResultsDisplay = (props) => {
   for (var i in props.resultsInfo) {
     for (var j in props.resultsInfo[i].offer) {
       var resultsDiv = props.resultsInfo[i].links[j].link.map(function(item) {
-        return <p data-id={item}>{item}</p>
+        return <p>{item}</p>
       })
       var link = props.resultsInfo[i].links[j].link[0].replace(/\D/g, '');
+      var details = '/details/'+link;
             var state = <div className='resultsFlexbox'>
                           {props.resultsInfo[i].offer[j]}
-                          <a href={link}>{resultsDiv}</a>
+                          <a href={details}>{resultsDiv}</a>
                         </div>
             resultsTest.push(state)
     }
