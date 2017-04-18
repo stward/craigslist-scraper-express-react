@@ -33,25 +33,48 @@ body {
 /*====================================
              Home Page
 ====================================*/
-
-.homePageFlexBoxs {
-  display: flex;
-  border: 1px solid black;
-  flex-wrap: wrap;
-  width: calc(33.33% -10px);
-  justify-content: space-between;
+.Heading {
+  text-align: center;
+  font-size: 350%;
 }
 
-.homePageFlexItems {
+.homeFlexBox {
+  border-top: 8px double black;
+  margin: 0 0 0 0;
+
+}
+
+.stateFlexBoxs {
   display: flex;
-  flex-wrap: wrap;
-  width: calc(50% - 10px);
+  flex-direction: column;
   justify-content: space-around;
+  flex-wrap: wrap;
+  padding-bottom: 5%;
+  width: 100%;
+  margin: 0 0 0 0;
 }
 
-.homeFlexItem {
-  margin-left: 15px;
+.state {
+  align-self: center;
+  margin: 0 0 0 0;
+
 }
+
+.cities {
+  padding: 1% 1% 1% 1%;
+  margin: 0 0 0 0;
+
+}
+
+.citiesFlexBox {
+  margin: 0 0 0 0;
+  display: row;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 99%;
+}
+
 
 /*====================================
              Results Page
