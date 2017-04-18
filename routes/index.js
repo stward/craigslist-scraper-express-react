@@ -31,6 +31,7 @@ Router.route('/results')
     links: x('li .result-info', [{
       link: ['.result-title@href']
     }]),
+    detailId: 'data-id'
   }])(function(err, scraped) {
     if(err) {
       console.log(err, "Error scraping");
@@ -42,12 +43,19 @@ Router.route('/results')
 
 Router.route('/details/:detailId')
 .get(function(req, res) {
-  x('https://bozeman.craigslist.org/search/zip/'+req.params.detailId, '.rows', [{
-    title: ['body h2'],
+  console.log(req.params.detailId);
+  x(('https://bozeman.craigslist.org/zip/'+req.params.detailId+'.html'), '.body', [{
+    titles: x('h2 ', [{
+      title: ['.postingtitletext']
+    }]),
+    images: x('figure .gallery', [{
+      image: ['.swipe-wrap img@src']
+    }])
   }])(function(err, scraped) {
     if(err) {
       console.log(err, "Error scraping");
     } else {
+      // console.log(scraped);
       res.json(scraped);
     }
   })
