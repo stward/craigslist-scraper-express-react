@@ -11,25 +11,25 @@ const HomeDisplay = (props) => {
       })
       var state =
                 <div className='homeFlexBox'>
-                  <div className='stateFlexBoxs'>
                     <div className='state'>
                       <h1><em><strong>{props.info[i].state[j]}</strong></em></h1>
                     </div>
                     <div className='citiesFlexBox'>
                       {cityDiv}
                     </div>
-                  </div>
                 </div>
       test.push(state)
     }
   }
   var garbage = test.map(function(item) {
-    return <div>{item}</div>
+    return <div className='stateFlexBoxs'>{item}</div>
   })
   return (
     <div>
-      <h1 className='Heading'> HOME PAGE </h1>
-      {garbage}
+    <h1 className='Heading'> HOME PAGE </h1>
+    <div className='homePageGridFlexBox'>
+        {garbage}
+    </div>
     </div>
   )
 }

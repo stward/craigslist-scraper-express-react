@@ -46,12 +46,18 @@ Router.route('/details')
 .get(function(req, res) {
   console.log("q: " + req.query.link);
   x((req.query.link), '.body', [{
-    titles: x('h2 ', [{
-      title: ['.postingtitletext']
+    titles: x('h2 .postingtitletext', [{
+      title: ['#titletextonly']
     }]),
     images: x('figure .gallery', [{
-      image: ['.swipe-wrap img@src']
-    }])
+      image : ['.swipe img@src'],
+      thumbs: x('#thumbs a', [{
+        thumb: 'href'
+      }])
+    }]),
+    body: x('.userbody', [{
+      text: ['#postingbody']
+    }]),
   }])(function(err, scraped) {
     if(err) {
       console.log(err, "Error scraping");
