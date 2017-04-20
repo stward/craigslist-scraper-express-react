@@ -12,8 +12,7 @@ const ResultsDisplay = (props) => {
       var link = props.resultsInfo[i].links[j].link[0];
       var detailLink = "/details?link=" + encodeURIComponent(link)
             var state = <div className='resultsFlexbox'>
-                          {props.resultsInfo[i].offer[j]}
-                          <a href={detailLink}>{resultsDiv}</a>
+                          <a href={detailLink}>{props.resultsInfo[i].offer[j].slice(65, 190)}</a>
                         </div>
             resultsTest.push(state)
     }
@@ -22,9 +21,9 @@ const ResultsDisplay = (props) => {
   })
     return (
       <div>
-        <h1> RESULTS PAGE </h1>
-        <button onClick={browserHistory.goBack}>Go Back</button>
-        {garbage}
+        <button onClick={browserHistory.goBack}>◀️Go Back</button>
+        <h1 className='Heading'> RESULTS PAGE </h1>
+          {garbage}
       </div>
     )
 }

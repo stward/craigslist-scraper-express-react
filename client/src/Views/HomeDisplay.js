@@ -7,26 +7,29 @@ const HomeDisplay = (props) => {
       var cityDiv = props.info[i].cities[j].name.map(function(item, index) {
         // console.log("The current iteration is: " + index);
         var cityLink = "/results?link=" + encodeURIComponent(props.info[i].cities[j].link[index])
-        return <a href={cityLink}><li className='homeFlexItem'>{item}</li></a>
+        return <a href={cityLink} className='cities'><p>{item}</p></a>
       })
-      var state = <div>
-                    <div className='homePageFlexBoxs'>
-                      {props.info[i].state[j]}
+      var state =
+                <div className='homeFlexBox'>
+                    <div className='state'>
+                      <h1><em><strong>{props.info[i].state[j]}</strong></em></h1>
                     </div>
-                    <ul className='homePageFlexItems'>
+                    <div className='citiesFlexBox'>
                       {cityDiv}
-                    </ul>
-                  </div>
+                    </div>
+                </div>
       test.push(state)
     }
   }
   var garbage = test.map(function(item) {
-    return <div>{item}</div>
+    return <div className='stateFlexBoxs'>{item}</div>
   })
   return (
     <div>
-      <h1> HOME PAGE </h1>
-      {garbage}
+    <h1 className='Heading'> HOME PAGE </h1>
+    <div className='homePageGridFlexBox'>
+        {garbage}
+    </div>
     </div>
   )
 }
