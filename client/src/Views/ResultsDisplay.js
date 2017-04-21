@@ -2,7 +2,6 @@ import React from 'react';
 import {browserHistory} from 'react-router';
 
 const ResultsDisplay = (props) => {
-  console.log(props.resultsInfo);
   var resultsTest = []
   for (var i in props.resultsInfo) {
     for (var j in props.resultsInfo[i].offer) {
@@ -19,6 +18,7 @@ const ResultsDisplay = (props) => {
   var garbage = resultsTest.map(function(item) {
     return <div>{item}</div>
   })
+  console.log(props.resultsInfo[i]);
     return (
       <div>
         <button onClick={browserHistory.goBack}>◀️Go Back</button>

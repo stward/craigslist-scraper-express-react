@@ -32,6 +32,9 @@ Router.route('/results')
     links: x('li .result-info', [{
       link: ['.result-title@href']
     }]),
+    images: x('li .swipe-wrap', [{
+      image: ['img@src']
+    }]),
     detailId: 'data-id'
   }])(function(err, scraped) {
     if(err) {
@@ -50,10 +53,10 @@ Router.route('/details')
       title: ['#titletextonly']
     }]),
     images: x('figure .gallery', [{
-      image : ['.swipe img@src'],
-      thumbs: x('#thumbs a', [{
-        thumb: 'href'
-      }])
+      image : ['.swipe img@src']
+    }]),
+    thumbs: x('#thumbs', [{
+      thumb: ['a@href']
     }]),
     body: x('.userbody', [{
       text: ['#postingbody']
