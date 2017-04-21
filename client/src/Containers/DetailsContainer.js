@@ -29,7 +29,7 @@ class ResultsContainer extends Component {
 
     return (
       <div>
-         {(this.state.detailInfo !== null) ? <DetailsDisplay detailInfo={this.state.detailInfo}/> : <span> detail Id is null</span>}
+         {(this.state.detailInfo !== null) ? <DetailsDisplay detailInfo={this.state.detailInfo}/> : <h1> Loading </h1>}
       </div>
     )
   }

@@ -13,14 +13,21 @@ const DetailsDisplay = (props) => {
           return <img src={item} alt='no image provided' className='detailImage'/>
         })
     }
-    for (var l in props.detailInfo[i].body) {
-      var bodyDiv = props.detailInfo[i].body[l].text.map(function(item) {
+      for (var l in props.detailInfo[i].thumbs) {
+        var thumbDiv =  props.detailInfo[i].thumbs[l].thumb.map(function(item) {
+          return <img src={item} alt='no image provided' className='detailThumbs'/>
+        })
+    }
+    for (var m in props.detailInfo[i].body) {
+      var bodyDiv = props.detailInfo[i].body[m].text.map(function(item) {
         return <div className='description'>{item.slice(47)}</div>
       })
   }
     var state = <div className='detailsFlexBox'>
                   {titlediv}
-                  {imageDiv}
+                  <div className='images'>
+                    {thumbDiv ? thumbDiv : imageDiv}
+                  </div>
                   {bodyDiv}
                 </div>
     Title.push(state)
@@ -28,7 +35,6 @@ const DetailsDisplay = (props) => {
   var garbage = Title.map(function(item) {
     return <div>{item}</div>
   })
-
   return (
     <div>
       <button onClick={browserHistory.goBack}>Go Back</button>

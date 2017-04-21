@@ -50,6 +50,8 @@ button {
 
 .Heading {
   text-align: center;
+  text-decoration: underline;
+  font-size: 250%;
 }
 
 .homeFlexBox {
@@ -63,18 +65,18 @@ button {
   flex-wrap: wrap;
   margin-bottom: 1%;
   width: calc(33.33% - 2%);
+  box-shadow: -6px 6px 7px #808080;
 }
 
 .state {
   text-align: center;
-  font-size: 40%;
+  font-size: 90%;
   margin: 0 0 0 0;
 }
 
 .cities {
-  font-size: 30%;
+  font-size: 90%;
   margin: 2% 1% 2% 1%;
-
 }
 
 .citiesFlexBox {
@@ -100,9 +102,9 @@ button {
   border: 2px solid black;
   margin: 2% 5% 1% 3%;
   flex-wrap: wrap;
-  box-shadow: -3px -3px;
+  box-shadow: -4px -4px 6px #808080;
   border-radius: 10px;
-  padding: .5% .5% .5% .5%;
+  padding: 1.5% 1% 1.5% 1%;
   color: black;
   text-decoration: none;
 }
@@ -116,17 +118,46 @@ button {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 1% 2% 1% 2%;
 }
 
 .detailImage {
-  width: 30%;
   margin-bottom: 5%;
   margin-top: 5%;
   border: 2px solid black;
   border-radius: 8px;
-  box-shadow: -3px -3px;
+  box-shadow: -9px 9px 5px #333333;
 }
 
-.description{
+.detailThumbs {
+  width: calc(33.33% - 2%);
   margin-bottom: 5%;
+  margin-top: 5%;
+  border: 2px solid black;
+  border-radius: 8px;
+  box-shadow: -9px 9px 5px #333333;
+}
+
+.description {
+  margin-bottom: 5%;
+}
+
+.images {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+
+
+@media(max-width: 700px){
+  .cities{
+    font-size: 30%;
+  }
+  .state {
+    font-size: 40%;
+  }
+  .Heading {
+    font-size: 100%;
+  }
 }
